@@ -14,7 +14,7 @@
 
         <div class="display-container">
             <input readonly type="text" class="display" placeholder="Password" data-passwordDisplay>
-            <button>
+            <button data-copy>
                 <span data-copyMsg></span>
                 <img src="./assets/copy.svg" alt="copy" height="23" width="23">
             </button>
@@ -24,7 +24,7 @@
 
             <div class="length-container">
                 <p>Password Length</p>
-                <p class="data-lengthNumber">0</p>
+                <p data-lengthNumber>0</p>
             </div>
 
             <input type="range" min="1" max="20" class="slider" data-lengthSlider>
