@@ -123,3 +123,71 @@ inputSlider.addEventListener('input',(e) => {
   handleSlider();
 })
 
+generateBtn.addEventListener('click',() => {
+  // no checkboxes are selected
+  if(checkCount <=0) return;
+
+  if(passwordLength < checkCount){
+    passwordLength = checkCount;
+    handleSlider();
+  }
+
+  // find NEW PASSWORD 
+
+  // remove old password 
+  password = "";
+
+  // insert checked items 
+
+  // if(uppercaseCheck.checked){
+  //   password += generateUppercase();
+  // }
+  // if(lowercaseCheck.checked){
+  //   password += generateLowercase();
+  // }
+  // if(numbersCheck.checked){
+  //   password += generateNumbers();
+  // }
+  // if(symbolsCheck.checked){
+  //   password += generateSymbol();
+  // }
+
+
+  let funcArr = [];
+
+  if(uppercaseCheck.checked)
+    funcArr.push(generateUppercase);
+
+  if(lowercaseCheck.checked)
+    funcArr.push(generateLowercase);
+
+  if(numbersCheck.checked)
+    funcArr.push(generateRandomNumber);
+
+  if(symbolsCheck.checked)
+    funcArr.push(generateSymbol);
+
+    // compulsory addition
+    for(let i=0; i<funcArr.Length; i++){
+      password += funcArr[i]();
+    }
+
+    // remaining addition
+    for(let i=0; i<passwordLength-funcArr.length; i++) {
+      let randIndex = getRndInteger(0, funcArr.length);
+      password += funcArr[randIndex]();
+    }
+
+    // shuffle the password 
+
+    password = shufflePassword();
+
+    // update password to display on UI 
+    passwordDisplay.value = password;
+
+    //calculate strength
+
+    calcStrength();
+
+
+});
