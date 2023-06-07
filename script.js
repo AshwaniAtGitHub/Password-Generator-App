@@ -52,3 +52,45 @@ function generateSymbol(){
     const randNum = getRndInteger(0,symbols.length);
     return symbols.charAt(randNum);
 }
+
+// function to calculate strength 
+function calcStrength() {
+        let hasUpper = false;
+        let hasLower = false;
+        let hasNum = false;
+        let hasSym = false;
+        if (uppercaseCheck.checked) hasUpper = true;
+        if (lowercaseCheck.checked) hasLower = true;
+        if (numbersCheck.checked) hasNum = true;
+        if (symbolsCheck.checked) hasSym = true;
+    
+        if (hasUpper && hasLower && (hasNum || hasSym) && passwordLength >= 8) {
+        setIndicator("#0f0");
+        } else if (
+        (hasLower || hasUpper) &&
+        (hasNum || hasSym) &&
+        passwordLength >= 6
+        ) {
+        setIndicator("#ff0");
+        } else {
+        setIndicator("#f00");
+        }
+     }
+
+    // function to copy the content to clipboard 
+    async function copyContent() {
+        try {
+          await navigator.clipboard.writeText(passwordDisplay.value);
+          copyMsg.innerText = "Copied";
+        } catch (err) {
+          copyMsg.innerText = "Failed";
+        }
+        copyMsg.classList.add("active");
+        setTimeout(() => {
+          copyMsg.classList.remove("active");
+        }, 2000);
+      }
+      
+      copyBtn.addEventListener("click", () => {
+        if (passwordDisplay.value) copyContent();
+      });
