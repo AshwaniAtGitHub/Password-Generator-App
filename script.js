@@ -91,6 +91,31 @@ function calcStrength() {
         }, 2000);
       }
       
+      function handleCheckBoxChange() {
+        checkCount = 0;
+        allCheckBox.forEach((checkbox) => {
+          if(checkbox.checked)
+          checkCount++;
+        });
+
+        // Special condition 
+
+        if(passwordLength<checkCount){
+          passwordLength=checkCount;
+          handleSlider();
+        }
+      }
+
+      allCheckBox.forEach((checkbox) => {
+        checkbox.addEventListener('change', handleCheckBoxChange);
+      })
+
       copyBtn.addEventListener("click", () => {
-        if (passwordDisplay.value) copyContent();
+        if (passwordDisplay.value)
+        copyContent();
       });
+
+      inputSlider.addEventListener('input',(e) => {
+        passwordLength = e.target.value;
+        handleSlider();
+      })
