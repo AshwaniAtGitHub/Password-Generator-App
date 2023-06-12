@@ -247,3 +247,37 @@ h1{
     letter-spacing: 0.75px;
 }
 
+.strength-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.strength-container p {
+    color: var(--pl-white);
+    font-size: 1.5rem;
+}
+
+.indicator {
+    width: 1.5em;
+    height: 1.5rem;
+    border-radius: 50%;
+    transition: all 250ms ease-in-out;
+    box-shadow: 1ps;
+}
+
+.generateButton {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: var(--vb-violet);
+    text-align: center;
+    border-radius: 0.75rem;
+    border-bottom: 0.35rem solid var(--vb-yellow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--vb-yellow);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
