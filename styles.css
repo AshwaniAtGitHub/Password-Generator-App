@@ -205,3 +205,45 @@ h1{
     box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
 }
 
+.check {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0 1rem;
+}
+
+.check:last-of-type {
+    margin-bottom: 1.75rem;
+}
+
+.check input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--vb-cyan);
+    cursor: pointer;
+    position: relative;
+    border-radius: 0.35rem;
+}
+
+.check input:checked {
+    background-color: var(--vb-cyan);
+}
+
+.check input:checked::before {
+    position: absolute;
+    content: '✔';
+    color: var(--dk-text);
+    font-size: 1.05rem;
+    font-weight: 600;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -3.5px;
+}
+
+.check label {
+    color: var(--pl-white);
+    font-size: 1.25rem;
+    letter-spacing: 0.75px;
+}
+
