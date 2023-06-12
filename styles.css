@@ -8,6 +8,11 @@
     font-family: 'League Spartan', sans-serif;
 }
 
+button {
+    all: unset;
+    cursor: pointer;
+}
+
 :root {
 
     --dk-violet: hsl(268, 75%, 9%);
@@ -26,4 +31,3 @@
 
     --dk-text: hsl(198, 20%, 13%);
 }
-
